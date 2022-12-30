@@ -35,4 +35,20 @@ public class TestUserRegistration {
     public void testEmailInvalid(String str){
         assertFalse(user.checkEmail(str));
     }
+    @Test
+    public void testAddUserCustomException(){
+        String[] arr = {"kuldeep","Badgujar","Kuldeep.badgujar@gmail.com","91 7878989800","HashTable@4567"};
+        assertEquals("Invalid First Name",user.addUser(arr));
+        String[] array = {"Kuldeep","badgujar","Kuldeep.badgujar@gmail.com","91 787898980","HashTable@4567"};
+        assertEquals("Invalid Last Name",user.addUser(array));
+        String[] array1 = {"Kuldeep","Badgujar","Kuldee@p.badgujar@gmail.com","91 7878989809","HashTable@4567"};
+        assertEquals("Invalid Email ID",user.addUser(array1));
+        String[] array2 = {"Kuldeep","Badgujar","Kuldeep.badgujar@gmail.com","91 787898980","HashTable@4567"};
+        assertEquals("Invalid Phone Number",user.addUser(array2));
+        String[] array3 = {"Kuldeep","Badgujar","Kuldeep.badgujar@gmail.com","91 7878989809","ashable@4567"};
+        assertEquals("Invalid Password",user.addUser(array3));
+        String[] array4 = {"Kuldeep","Badgujar","Kuldeep.badgujar@gmail.com","91 7878989809","Ashable@4567"};
+        assertEquals("Happy",user.addUser(array4));
+    }
+
 }
