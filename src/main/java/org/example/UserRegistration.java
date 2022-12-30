@@ -22,7 +22,11 @@ public class UserRegistration {
         if(b){
             firstName = fName;
         }else{
-            return "Sad";
+            try {
+                throw new InvalidEntryException("Invalid First Name");
+            } catch (InvalidEntryException e) {
+                return "Invalid First Name";
+            }
         }
         String lName = arr[1];
         Pattern p2 = Pattern.compile("^[A-Z]+[a-z]{2,}");
@@ -31,7 +35,12 @@ public class UserRegistration {
         if(b1){
             lastName = lName;
         }else{
-            return "Sad";
+            try {
+                throw new InvalidEntryException("Invalid Last Name");
+            } catch (InvalidEntryException e) {
+                return "Invalid Last Name";
+            }
+
         }
         String email = arr[2];
         Pattern p3 = Pattern.compile("[a-zA-Z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-za-z]{2,})$");
@@ -40,7 +49,11 @@ public class UserRegistration {
         if(b2){
             eMail = email;
         }else{
-            return "Sad";
+            try {
+                throw new InvalidEntryException("Invalid Email ID");
+            } catch (InvalidEntryException e) {
+                return "Invalid Email ID";
+            }
         }
         String pNum = arr[3];
         Pattern p4 = Pattern.compile("^(\\d{2}[- .]?){1}\\d{10}$");
@@ -49,7 +62,11 @@ public class UserRegistration {
         if(b3){
             phoneNumber = pNum;
         }else{
-            return "Sad";
+            try {
+                throw new InvalidEntryException("Invalid Phone Number");
+            } catch (InvalidEntryException e) {
+                return "Invalid Phone Number";
+            }
         }
         String pass = arr[4];
         Pattern p5 = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()+-=]).{8,}$");
@@ -58,7 +75,11 @@ public class UserRegistration {
         if(b4){
             password = pass;
         }else{
-            return "Sad";
+            try {
+                throw new InvalidEntryException("Invalid Password");
+            } catch (InvalidEntryException e) {
+                return "Invalid Password";
+            }
         }
         return "Happy";
 
