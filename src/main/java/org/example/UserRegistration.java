@@ -12,7 +12,6 @@ public class UserRegistration {
     String password;
     public static void main(String[] args) {
         UserRegistration users = new UserRegistration();
-        users.checkEmail();
 
     }
     public String addUser(String[] arr){
@@ -64,17 +63,15 @@ public class UserRegistration {
         return "Happy";
 
     }
-    public void checkEmail(){
-        System.out.println("Enter email id : ");
-        Scanner sb = new Scanner(System.in);
-        String email = sb.nextLine();
+    public boolean checkEmail(String str){
+        String email = str;
         Pattern p3 = Pattern.compile("[a-zA-Z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-za-z]{2,})$");
         Matcher ema = p3.matcher(email);
         boolean b2 = ema.matches();
         if(b2){
-            System.out.println("Valid email...");
+            return  true;
         }else{
-            System.out.println("Invalid email id...");
+            return false;
         }
     }
 }
